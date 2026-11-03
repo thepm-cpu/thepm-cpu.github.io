@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chibuzor Ossai · DevOps &amp; Cloud Engineer</title>
+<meta name="description" content="I build and look after servers, cloud setups and the automation that keeps them running. Projects, experience and CV.">
+<link rel="canonical" href="https://chibuzorossai.com/">
+<meta name="theme-color" content="#0C0B0A">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chibuzor Ossai">
+<meta property="og:url" content="https://chibuzorossai.com/">
+<meta property="og:title" content="Chibuzor Ossai · DevOps &amp; Cloud Engineer">
+<meta property="og:description" content="I build and look after servers, cloud setups and the automation that keeps them running. Projects, experience and CV.">
+<meta property="og:image" content="https://chibuzorossai.com/img/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Chibuzor Ossai, DevOps and cloud engineer, wiring solar panels on a roof">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chibuzorossai.com/img/share.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@600..900&family=Manrope:wght@400..800&display=swap">
+<style>
+/* Layout: a dark, cinematic one-pager. A poster-scale name beside a black-and-white work photo,
+   a slow ticker of skills, then roomy sections whose cards warm up to sunlight gold on hover. */
+:root {
+  color-scheme: dark;
+  --bg: #0C0B0A;
+  --bg-2: #11100E;
+  --surface: #161512;
+  --surface-2: #1E1C18;
+  --line: rgba(242, 236, 228, .09);
+  --line-strong: rgba(242, 236, 228, .2);
+  --text: #F3EFE9;
+  --muted: #A9A296;
+  --faint: #6F695F;
+  --gold: #F2B441;
+  --gold-soft: rgba(242, 180, 65, .14);
+  --gold-line: rgba(242, 180, 65, .45);
+  --on-gold: #1B1406;
+  --live: #4ADE80;
+  --nav-bg: rgba(12, 11, 10, .74);
+  --display: "Big Shoulders", "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  --body: "Manrope", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --wrap: 1200px;
+  --gl: max(clamp(18px, 4.5vw, 48px), env(safe-area-inset-left, 0px));
+  --gr: max(clamp(18px, 4.5vw, 48px), env(safe-area-inset-right, 0px));
+  --radius: 20px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 30; background: var(--bg);
+}
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+p { margin: 0; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-left: var(--gl); padding-right: var(--gr); }
+
+/* ---------- nav ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--nav-bg); border-bottom: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+}
+.nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.mark {
+  display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%;
+  border: 1.5px solid var(--gold); color: var(--gold);
+  font-family: var(--display); font-weight: 800; font-size: 1.05rem; letter-spacing: .04em;
+}
+.brand-name { font-family: var(--display); font-weight: 800; font-size: 1.3rem; letter-spacing: .06em; text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { text-decoration: none; font-weight: 600; font-size: .93rem; color: var(--muted); transition: color .2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.btn-gold, .nav-links a.btn-gold:hover { color: var(--on-gold); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 12px 24px; border-radius: 999px;
+  font-family: var(--body); font-weight: 700; font-size: .98rem; line-height: 1;
+  text-decoration: none; cursor: pointer; border: 1.5px solid transparent;
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease;
+}
+.btn svg { width: 16px; height: 16px; flex: none; }
+.btn-gold { background: var(--gold); color: var(--on-gold); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 40px -12px var(--gold-line); }
+.btn-ghost { border-color: var(--line-strong); color: var(--text); background: transparent; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+.btn-sm { min-height: 40px; padding: 9px 18px; font-size: .9rem; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; padding-block: clamp(36px, 6vw, 80px) clamp(48px, 7vw, 96px); }
+.hero::before {
+  content: ""; position: absolute; z-index: 0; pointer-events: none;
+  width: 900px; height: 900px; right: -260px; top: -220px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(242, 180, 65, .16), rgba(242, 180, 65, 0));
+}
+.hero-grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 88px); align-items: center;
+}
+.status {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 7px 14px 7px 12px; border-radius: 999px;
+  border: 1px solid var(--line-strong); background: var(--surface);
+  font-size: .88rem; font-weight: 600; color: var(--muted);
+}
+.status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 4px rgba(74, 222, 128, .15); }
+.name {
+  font-family: var(--display); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(4.2rem, 10vw, 9rem); line-height: .84; letter-spacing: .005em;
+  margin: 26px 0 22px;
+}
+.name span { display: block; }
+.name span + span { color: var(--gold); }
+.role { font-weight: 700; font-size: clamp(1.05rem, 1.6vw, 1.22rem); color: var(--text); margin-bottom: 16px; }
+.role i { font-style: normal; color: var(--faint); padding-inline: 6px; }
+.intro { color: var(--muted); font-size: clamp(1.02rem, 1.4vw, 1.12rem); max-width: 54ch; margin-bottom: 32px; }
+.intro strong { color: var(--text); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.hero-photo { position: relative; margin: 0; }
+.hero-photo img {
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: var(--radius); border: 1px solid var(--line-strong);
+  background: var(--surface);
+}
+.hero-photo figcaption {
+  position: absolute; left: 16px; bottom: 16px;
+  padding: 7px 12px; border-radius: 999px; background: rgba(12, 11, 10, .72);
+  font-size: .8rem; font-weight: 600; color: var(--text);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.chip-stat {
+  position: absolute; display: grid; gap: 2px;
+  padding: 14px 18px; border-radius: 16px;
+  background: var(--surface-2); border: 1px solid var(--line-strong);
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .8);
+}
+.chip-stat strong { font-family: var(--display); font-weight: 800; font-size: 2.1rem; line-height: 1; color: var(--gold); }
+.chip-stat span { font-size: .8rem; font-weight: 600; color: var(--muted); }
+.chip-stat.a { left: -28px; top: 28px; }
+.chip-stat.b { right: -20px; bottom: 76px; }
+
+/* ---------- ticker ---------- */
+.ticker { border-block: 1px solid var(--line); background: var(--bg-2); overflow: hidden; padding-block: 18px; }
+.track { display: flex; width: max-content; animation: slide 46s linear infinite; }
+.track span {
+  display: inline-flex; align-items: center; gap: 30px; padding-right: 30px;
+  font-family: var(--display); font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.3rem);
+  text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; color: var(--text);
+}
+.track span:nth-child(even) { color: transparent; -webkit-text-stroke: 1px var(--muted); }
+.track span::after { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ---------- sections ---------- */
+.section { padding-block: clamp(72px, 10vw, 128px); }
+.section + .section { border-top: 1px solid var(--line); }
+.head { margin-bottom: clamp(32px, 5vw, 56px); display: grid; gap: 12px; }
+.kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: .8rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold);
+}
+.kicker::before { content: ""; width: 28px; height: 1.5px; background: var(--gold); }
+.title {
+  font-family: var(--display); font-weight: 800; text-transform: uppercase;
+  font-size: clamp(2.7rem, 6.4vw, 5rem); line-height: .92; letter-spacing: .01em;
+}
+.lead { color: var(--muted); max-width: 60ch; }
+
+/* about */
+.about-grid { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1fr); gap: clamp(36px, 6vw, 88px); align-items: center; }
+.about-photo { margin: 0; }
+.about-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line-strong); }
+.about-copy p + p { margin-top: 18px; }
+.about-copy p { color: var(--muted); max-width: 60ch; }
+.about-copy p strong { color: var(--text); font-weight: 600; }
+.facts { list-style: none; padding: 0; margin: 32px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.facts li { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line-strong); font-size: .9rem; font-weight: 600; }
+
+/* work */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.card {
+  position: relative; display: flex; flex-direction: column; gap: 16px;
+  padding: clamp(24px, 3vw, 34px); border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--line); min-width: 0;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--gold-line); box-shadow: 0 30px 80px -40px rgba(242, 180, 65, .35); }
+.card.wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.card .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: .85rem; font-weight: 600; color: var(--faint); }
+.card .meta .tag { color: var(--gold); letter-spacing: .08em; text-transform: uppercase; font-size: .76rem; font-weight: 700; }
+.card h3 { font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: .98; text-transform: uppercase; letter-spacing: .01em; }
+.card p { color: var(--muted); }
+.card blockquote { margin: 0; padding-left: 16px; border-left: 2px solid var(--gold); color: var(--text); font-weight: 600; }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.stack li { padding: 5px 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-size: .8rem; font-weight: 600; color: var(--text); }
+.card .go { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .95rem; color: var(--gold); text-decoration: none; align-self: flex-start; }
+.card .go svg { width: 14px; height: 14px; transition: transform .2s ease; }
+.card .go:hover svg { transform: translate(2px, -2px); }
+.flow { list-style: none; margin: 0; padding: 22px; border-radius: 16px; background: var(--bg-2); border: 1px solid var(--line); display: grid; gap: 10px; }
+.flow li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; align-items: center; }
+.flow .n { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gold-soft); color: var(--gold); font-weight: 800; font-size: .82rem; }
+.flow b { font-weight: 700; color: var(--text); }
+.flow span { color: var(--muted); font-size: .92rem; }
+.flow-note { margin-top: 14px; font-size: .88rem; color: var(--faint); }
+
+.practice { margin-top: 22px; padding: clamp(24px, 3vw, 34px); border-radius: var(--radius); border: 1px dashed var(--line-strong); }
+.practice h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 14px; }
+.practice ul { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; }
+.practice li { color: var(--muted); padding-left: 18px; position: relative; }
+.practice li::before { content: ""; position: absolute; left: 0; top: .7em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+.practice li b { color: var(--text); font-weight: 700; }
+.practice .go { display: inline-flex; margin-top: 18px; gap: 8px; align-items: center; font-weight: 700; color: var(--gold); text-decoration: none; }
+.practice .go svg { width: 14px; height: 14px; }
+
+/* experience */
+.jobs { list-style: none; margin: 0; padding: 0; position: relative; max-width: 920px; }
+.jobs::before { content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 1.5px; background: var(--line-strong); }
+.job { position: relative; padding-left: 44px; padding-bottom: clamp(36px, 5vw, 52px); }
+.job:last-child { padding-bottom: 0; }
+.job::before {
+  content: ""; position: absolute; left: 0; top: 8px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--gold);
+}
+.job-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; align-items: baseline; }
+.job h3 { font-size: clamp(1.25rem, 2vw, 1.45rem); font-weight: 800; letter-spacing: -.01em; }
+.job .when { font-weight: 700; font-size: .9rem; color: var(--gold); white-space: nowrap; }
+.job .where { color: var(--faint); font-weight: 600; margin: 2px 0 14px; }
+.job ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: var(--muted); max-width: 76ch; }
+.job li::marker { color: var(--gold); }
+
+/* solar */
+.solar-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
+.story { padding: clamp(28px, 4vw, 44px); border-radius: var(--radius); background: linear-gradient(160deg, rgba(242, 180, 65, .13), rgba(242, 180, 65, .02) 55%), var(--surface); border: 1px solid var(--gold-line); }
+.big { font-family: var(--display); font-weight: 900; font-size: clamp(5rem, 11vw, 8.5rem); line-height: .85; color: var(--gold); }
+.big-sub { font-weight: 700; margin: 10px 0 20px; }
+.story p:last-child { color: var(--muted); }
+.steps { list-style: none; margin: 0; padding: clamp(28px, 4vw, 44px); border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); display: grid; gap: 20px; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; align-items: start; color: var(--muted); }
+.steps li::before {
+  content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px;
+  background: var(--surface-2); border: 1px solid var(--line-strong);
+  font-family: var(--display); font-weight: 800; font-size: 1.3rem; color: var(--gold);
+}
+.steps li b { color: var(--text); display: block; font-weight: 700; }
+.steps .biggest { display: block; counter-increment: none; border-top: 1px solid var(--line); padding-top: 18px; font-size: .95rem; color: var(--muted); }
+.steps .biggest::before { content: none; }
+.steps .biggest b { color: var(--text); }
+
+/* skills + education */
+.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.skill { padding: 26px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.skill h3 { font-size: 1rem; font-weight: 800; margin-bottom: 14px; }
+.edu { margin-top: 22px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 24px; align-items: center; padding: clamp(24px, 3vw, 34px); border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-2); }
+.edu h3 { font-family: var(--display); font-weight: 800; font-size: clamp(1.6rem, 2.6vw, 2.1rem); text-transform: uppercase; line-height: 1; }
+.edu p { color: var(--muted); grid-column: 1 / -1; }
+.edu .yr { font-family: var(--display); font-weight: 800; font-size: 2rem; color: var(--gold); }
+
+/* CV */
+.cv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.cv { display: flex; flex-direction: column; gap: 12px; padding: clamp(26px, 3vw, 34px); border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); transition: border-color .25s ease; }
+.cv:hover { border-color: var(--gold-line); }
+.cv .kind { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.cv h3 { font-family: var(--display); font-weight: 800; font-size: 2rem; text-transform: uppercase; line-height: 1; }
+.cv p { color: var(--muted); }
+.cv .btn { align-self: flex-start; margin-top: 8px; }
+.cv-note { margin-top: 18px; color: var(--faint); font-size: .92rem; min-height: 1.6em; }
+
+/* contact */
+.contact { text-align: left; }
+.huge {
+  font-family: var(--display); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(4.6rem, 16vw, 13rem); line-height: .82; letter-spacing: .005em;
+}
+.huge span { color: var(--gold); }
+.contact .lead { margin: 26px 0 30px; font-size: 1.1rem; }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-bottom: 26px; }
+.mail a { font-size: clamp(1.15rem, 2.6vw, 1.7rem); font-weight: 800; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 2px; overflow-wrap: anywhere; }
+.copy { min-height: 40px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--text); font-family: var(--body); font-weight: 700; font-size: .85rem; cursor: pointer; }
+.copy:hover { border-color: var(--gold); color: var(--gold); }
+.socials { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* footer */
+.foot { border-top: 1px solid var(--line); padding-block: 40px 32px; overflow: hidden; }
+.wordmark {
+  font-family: var(--display); font-weight: 900; text-transform: uppercase; white-space: nowrap;
+  font-size: clamp(3rem, 11.5vw, 9.6rem); line-height: .85; color: transparent; -webkit-text-stroke: 1px var(--line-strong);
+}
+.foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; margin-top: 24px; color: var(--faint); font-size: .88rem; font-weight: 600; }
+.foot-row nav { display: flex; gap: 20px; }
+.foot-row a { text-decoration: none; }
+.foot-row a:hover { color: var(--gold); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .hero-grid, .about-grid, .card.wide, .solar-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-photo { max-width: 520px; }
+  .about-photo { max-width: 460px; }
+  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .nav-links a:not(.btn) { display: none; }
+  .brand-name { display: none; }
+  .projects, .cv-grid, .practice ul { grid-template-columns: minmax(0, 1fr); }
+  .chip-stat.a { left: 12px; top: 12px; }
+  .chip-stat.b { right: 12px; bottom: 64px; }
+  .chip-stat strong { font-size: 1.7rem; }
+}
+@media (max-width: 560px) {
+  .skills-grid { grid-template-columns: minmax(0, 1fr); }
+  .edu { grid-template-columns: minmax(0, 1fr); }
+  .job { padding-left: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .track { animation: none; }
+  .btn, .card, .card .go svg { transition: none; }
+}
+</style>
+<style>[hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="brand" href="#top" aria-label="Chibuzor Ossai, back to top"><span class="mark" aria-hidden="true">CO</span><span class="brand-name">Chibuzor Ossai</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-gold btn-sm" href="#cv">Get my CV</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="status"><span class="dot" aria-hidden="true"></span>Available for work · Nigeria (UTC+1)</p>
+        <h1 class="name"><span>Chibuzor</span><span>Ossai</span></h1>
+        <p class="role">DevOps &amp; Cloud Engineer<i>/</i>Mechanical Engineer</p>
+        <p class="intro">I build and look after servers, cloud setups and the automation that keeps them running. I did that for <strong>four years as a remote DevOps engineer</strong> at Array Software Solutions, while I studied mechanical engineering at UNN. I also size and install <strong>solar power systems</strong>.</p>
+        <div class="cta">
+          <a class="btn btn-gold" href="#work">See my work</a>
+          <a class="btn btn-ghost" href="#cv">Download my CV</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="img/hero-rooftop.jpg" width="1040" height="1300" alt="Chibuzor in a hard hat and safety vest, wiring two solar panels on a metal roof">
+        <figcaption>On a rooftop solar job</figcaption>
+        <div class="chip-stat a"><strong>4 yrs</strong><span>remote DevOps work</span></div>
+        <div class="chip-stat b"><strong>₦4M</strong><span>fuel saved for one client</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="track">
+      <span>Linux</span><span>Docker</span><span>Terraform</span><span>AWS</span><span>GitHub Actions</span><span>Python</span><span>Prometheus</span><span>Nginx</span><span>Solar power</span>
+      <span>Linux</span><span>Docker</span><span>Terraform</span><span>AWS</span><span>GitHub Actions</span><span>Python</span><span>Prometheus</span><span>Nginx</span><span>Solar power</span>
+    </div>
+  </div>
+
+  <section class="section" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="kicker">Selected work</p>
+        <h2 class="title" id="work-h">Things I've built</h2>
+      </div>
+
+      <div class="projects">
+        <article class="card wide">
+          <div>
+            <div class="meta"><span class="tag">Python · Cloud</span><span>2026</span></div>
+            <h3 style="margin: 14px 0 16px">Market data pipeline</h3>
+            <p>Every week I look at how big traders are positioned in currency futures. I wrote a Python pipeline that pulls the CFTC and CME data and builds those tables for seven currencies, so I don't have to put them together by hand.</p>
+            <p style="margin-top: 14px">Then I wrote the setup to run it in the cloud, so it doesn't need my laptop to be on. It can run on a schedule, send the new tables to my phone on Telegram, and tell me when something breaks.</p>
+            <ul class="stack" style="margin-top: 20px">
+              <li>Python</li><li>Docker</li><li>Terraform</li><li>AWS</li><li>GitHub Actions</li><li>Telegram bot</li>
+            </ul>
+          </div>
+          <div>
+            <ol class="flow" aria-label="How the cloud setup works">
+              <li><span class="n">1</span><div><b>I push code to GitHub</b><br><span>Tests run, then a Docker image is built</span></div></li>
+              <li><span class="n">2</span><div><b>The image goes to AWS</b><br><span>Stored in ECR, rolled out to an EC2 server</span></div></li>
+              <li><span class="n">3</span><div><b>The server runs the job</b><br><span>At 11:15, 12:30 and 23:30, Lagos time</span></div></li>
+              <li><span class="n">4</span><div><b>Results land on my phone</b><br><span>New tables, failure alerts, and /run to rerun it</span></div></li>
+            </ol>
+            <p class="flow-note">41 automated tests. No open ports on the server, and no AWS keys stored anywhere.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="meta"><span class="tag">Python · Testing</span><span>2026</span></div>
+          <h3>A backtest engine that checks itself</h3>
+          <p>It tests trading strategies on minute-by-minute data. Before I trust any result, I run it on random data, where it should find nothing. That check caught a one-line bug that made a losing strategy look like it won 82% of the time.</p>
+          <blockquote>I'd rather publish an engine that killed my own result than one that flatters it.</blockquote>
+          <ul class="stack"><li>Python</li><li>NumPy</li><li>pandas</li><li>SciPy</li></ul>
+          <a class="go" href="https://github.com/thepm-cpu/orb-backtest-engine" target="_blank" rel="noopener">See the code
+            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2h8v8M12 2 2 12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+        </article>
+
+        <article class="card">
+          <div class="meta"><span class="tag">MQL5 · Testing</span><span>2026</span></div>
+          <h3>A coin-flip test for a trading robot</h3>
+          <p>I wanted to know if my MetaTrader robot's results were real. So I swapped its buy and sell decision for a coin flip and kept everything else the same. The coin flip scored almost exactly what chance predicts, which cleared the robot and led me to the real bug, in my Python code.</p>
+          <ul class="stack"><li>MQL5</li><li>MetaTrader 5</li></ul>
+          <a class="go" href="https://github.com/thepm-cpu/mql5-null-test" target="_blank" rel="noopener">See the code
+            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2h8v8M12 2 2 12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+        </article>
+      </div>
+
+      <div class="practice">
+        <h3>Smaller builds I learned from</h3>
+        <ul>
+          <li><b>AWS with Terraform.</b> A VPC, auto-scaling EC2 servers and security groups, all written as code.</li>
+          <li><b>CI/CD.</b> A GitHub Actions pipeline that builds and deploys a Node.js app in Docker.</li>
+          <li><b>Secure web setups.</b> Nginx, Caddy and Traefik in front of apps, with HTTPS, a firewall and Fail2Ban.</li>
+          <li><b>Kubernetes.</b> A small multi-node cluster on my laptop with kind and Minikube.</li>
+        </ul>
+        <a class="go" href="https://github.com/thepm-cpu" target="_blank" rel="noopener">More on my GitHub
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2h8v8M12 2 2 12" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="kicker">Experience</p>
+        <h2 class="title" id="exp-h">Where I've worked</h2>
+      </div>
+      <ol class="jobs">
+        <li class="job">
+          <div class="job-top"><h3>Solar installer &amp; shop owner</h3><span class="when">2024 – now</span></div>
+          <p class="where">Self-employed · Ankpa, Kogi State</p>
+          <ul>
+            <li>I visit each building, list what needs power, size the panels, battery and inverter, then install the system myself.</li>
+            <li>In November 2025 I took over a registered electronics and solar shop. I've grown its stock value by about a third since then, and I handle the suppliers and inventory.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <div class="job-top"><h3>DevOps Engineer</h3><span class="when">Feb 2022 – Jan 2026</span></div>
+          <p class="where">Array Software Solutions Ltd · Remote</p>
+          <ul>
+            <li>Wrote one Bash script that sets up a new server from scratch: updates, Docker, Nginx, the firewall, monitoring and SSH hardening. Every server came out the same.</li>
+            <li>Set up separate logs for production and QA, so we could find problems faster.</li>
+            <li>Put Nginx in front of our apps with free, auto-renewing SSL certificates, and made Docker and monitoring start again on their own after a reboot.</li>
+            <li>Closed unused ports and blocked direct access to our services by IP address.</li>
+            <li>Added deployments with GitHub Actions to the company's DevOps repository.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <div class="job-top"><h3>Freelance DevOps Engineer</h3><span class="when">Jan 2024 – Jan 2026</span></div>
+          <p class="where">Small business clients · Remote</p>
+          <ul>
+            <li>Hosted a client's web-scraping bot on a cloud server. It collects data on a schedule and sends them regular updates.</li>
+            <li>Set up servers, Docker deployments, GitHub Actions pipelines and Prometheus and Grafana monitoring for client projects.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-h">
+    <div class="wrap about-grid">
+      <figure class="about-photo">
+        <img src="img/about-portrait.jpg" width="880" height="1100" alt="Portrait of Chibuzor Ossai in a cap and sunglasses, on a tree-lined campus">
+      </figure>
+      <div class="about-copy">
+        <div class="head" style="margin-bottom: 26px">
+          <p class="kicker">About me</p>
+          <h2 class="title" id="about-h">How I got here</h2>
+        </div>
+        <p>I studied <strong>mechanical engineering at the University of Nigeria, Nsukka</strong>. In 2022, while I was still a student, I got a remote DevOps job at Array Software Solutions and kept it for four years. The work was mostly setting up Linux servers, keeping them secure, and automating the boring parts.</p>
+        <p>After school I came home to Kogi State and took over a solar and electronics shop. Now I also size and install solar systems for homes and businesses. It has taught me a lot about how power systems behave in real life.</p>
+        <p>Next, I want a <strong>DevOps, cloud or data center role</strong>, remote or abroad. Outside work, I'm into 3D art in Blender and African history.</p>
+        <ul class="facts">
+          <li>Nigeria · UTC+1</li>
+          <li>B.Eng, UNN, 2025</li>
+          <li>Open to relocation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="solar" aria-labelledby="solar-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="kicker">Off the screen</p>
+        <h2 class="title" id="solar-h">Solar work</h2>
+      </div>
+      <div class="solar-grid">
+        <div class="story">
+          <p class="big">₦4M</p>
+          <p class="big-sub">saved on generator fuel in two years</p>
+          <p>In 2024 I advised a tailor who was always buying generator fuel to switch to solar, and I did the installation with tubular batteries. He says he saved about ₦4 million on fuel in two years, and he used that money to open a second shop in Abuja.</p>
+        </div>
+        <ol class="steps">
+          <li><div><b>Look at the load</b>Every appliance, and how long it runs each day.</div></li>
+          <li><div><b>Size the system</b>Panels, battery and inverter to match that load.</div></li>
+          <li><div><b>Get the equipment</b>Panels, batteries, inverters and cables from my suppliers.</div></li>
+          <li><div><b>Install and test</b>Mount, wire and switch on, then check it works.</div></li>
+          <li class="biggest"><b>Biggest job so far:</b> six 300 W panels (1.8 kWp), a 2 kVA hybrid inverter and a 4 kWh lithium battery.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills" aria-labelledby="skills-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="kicker">Skills</p>
+        <h2 class="title" id="skills-h">What I work with</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill"><h3>Cloud &amp; Linux</h3><ul class="stack"><li>AWS</li><li>EC2</li><li>VPC</li><li>IAM</li><li>S3</li><li>SSM</li><li>DigitalOcean</li><li>Hetzner</li><li>Linux servers</li></ul></div>
+        <div class="skill"><h3>Containers &amp; CI/CD</h3><ul class="stack"><li>Docker</li><li>Docker Compose</li><li>Kubernetes (kind, Minikube)</li><li>GitHub Actions</li><li>Jenkins (basic)</li></ul></div>
+        <div class="skill"><h3>Infrastructure as code</h3><ul class="stack"><li>Terraform</li><li>Ansible</li><li>CloudFormation</li></ul></div>
+        <div class="skill"><h3>Monitoring &amp; security</h3><ul class="stack"><li>Prometheus</li><li>Grafana</li><li>Netdata</li><li>ELK Stack</li><li>UFW</li><li>Fail2Ban</li><li>SSH hardening</li><li>Nginx</li><li>Let's Encrypt</li></ul></div>
+        <div class="skill"><h3>Code &amp; data</h3><ul class="stack"><li>Bash</li><li>Python</li><li>YAML</li><li>Git</li><li>PostgreSQL</li><li>MySQL</li><li>MongoDB (basic)</li></ul></div>
+        <div class="skill"><h3>Power &amp; engineering</h3><ul class="stack"><li>Solar PV sizing</li><li>Lithium &amp; tubular batteries</li><li>Hybrid inverters</li><li>Charge controllers</li><li>Thermodynamics</li><li>Heat transfer</li></ul></div>
+      </div>
+      <div class="edu">
+        <h3>B.Eng, Mechanical Engineering</h3>
+        <span class="yr">2025</span>
+        <p>University of Nigeria, Nsukka. Relevant courses: solar energy conversion (MEE 569), thermodynamics, heat transfer and fluid mechanics.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cv" aria-labelledby="cv-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="kicker">CV</p>
+        <h2 class="title" id="cv-h">My CV</h2>
+        <p class="lead">I keep two versions. Pick the one that fits your role.</p>
+      </div>
+      <div class="cv-grid">
+        <article class="cv">
+          <p class="kind">PDF · one page</p>
+          <h3>DevOps &amp; cloud</h3>
+          <p>For DevOps, cloud and site reliability roles.</p>
+          <a class="btn btn-gold" id="cv-devops" href="cv/Chibuzor_Ossai_CV_DevOps.pdf" data-cv data-filename="Chibuzor_Ossai_CV_DevOps.pdf" download>Download PDF</a>
+        </article>
+        <article class="cv">
+          <p class="kind">PDF · one page</p>
+          <h3>Data center &amp; power</h3>
+          <p>For data center technician and facilities roles.</p>
+          <a class="btn btn-gold" id="cv-datacenter" href="cv/Chibuzor_Ossai_CV_DataCenter.pdf" data-cv data-filename="Chibuzor_Ossai_CV_DataCenter.pdf" download>Download PDF</a>
+        </article>
+      </div>
+      <p class="cv-note" id="cv-note" role="status">If a download doesn't start, email me and I'll send it.</p>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <h2 class="huge" id="contact-h" style="margin-top: 18px">Let's <span>talk</span></h2>
+      <p class="lead">I'm open to remote work, and to relocating within Nigeria or abroad. Email is the quickest way to reach me.</p>
+      <div class="mail">
+        <a id="email-addr" href="mailto:ossaichibuzoralex@gmail.com">ossaichibuzoralex@gmail.com</a>
+        <button class="copy" id="copy-email" type="button">Copy email</button>
+      </div>
+      <div class="socials">
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/ossai-chibuzor-0859451ba/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/thepm-cpu" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="wordmark" aria-hidden="true">Chibuzor Ossai</p>
+    <div class="foot-row">
+      <span>© 2026 Chibuzor Ossai</span>
+      <nav aria-label="Elsewhere">
+        <a href="https://github.com/thepm-cpu" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/ossai-chibuzor-0859451ba/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Copy the email address.
+  const copyBtn = document.getElementById('copy-email');
+  const addr = document.getElementById('email-addr');
+  if (copyBtn && addr) {
+    const label = copyBtn.textContent;
+    const reset = () => setTimeout(() => { copyBtn.textContent = label; }, 2000);
+    const selectAddress = () => {
+      const range = document.createRange();
+      range.selectNodeContents(addr);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      copyBtn.textContent = 'Selected';
+      reset();
+    };
+    copyBtn.addEventListener('click', () => {
+      const text = addr.textContent.trim();
+      try {
+        const pending = navigator.clipboard && navigator.clipboard.writeText(text);
+        if (!pending) { selectAddress(); return; }
+        pending.then(() => { copyBtn.textContent = 'Copied'; reset(); }, selectAddress);
+      } catch (err) {
+        selectAddress();
+      }
+    });
+  }
+
+  // CV downloads. Inside the Claude viewer, files go through the downloads capability.
+  // On any other host (GitHub Pages, a saved copy) they are plain file links.
+  const claudeUse = window.claude && typeof window.claude.use === 'function' ? window.claude.use.bind(window.claude) : null;
+  if (!claudeUse) return;
+  const note = document.getElementById('cv-note');
+  const say = (text) => { if (note) note.textContent = text; };
+  const fallback = "Downloads don't work in this view. Email me and I'll send it.";
+  let downloads; // undefined until the viewer answers, then the namespace or null
+  claudeUse('downloads').then((ns) => { downloads = ns; }, () => { downloads = null; });
+
+  document.querySelectorAll('a[data-cv]').forEach((link) => {
+    link.addEventListener('click', async (event) => {
+      if (downloads === null) { say(fallback); return; }
+      event.preventDefault();
+      const ns = downloads === undefined ? await claudeUse('downloads').catch(() => null) : downloads;
+      if (!ns) { say(fallback); return; }
+      try {
+        const res = await fetch(link.getAttribute('href'));
+        if (!res.ok) throw new Error('missing file');
+        const blob = await res.blob();
+        const result = await ns.save({ filename: link.dataset.filename, data: blob });
+        if (result && result.status === 'saved') say('Saved ' + link.dataset.filename + '.');
+      } catch (err) {
+        const code = err && err.code;
+        if (code === 'declined') return;
+        if (code === 'rate_limited') { say('A save prompt is already open. Try again in a moment.'); return; }
+        say("That download didn't work here. Email me and I'll send it.");
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
