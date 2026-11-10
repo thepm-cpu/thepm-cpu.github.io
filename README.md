@@ -1,4 +1,4 @@
-# chibuzorossai.com
+# chibuzorossai.top
 
 Personal site of Chibuzor Ossai, DevOps and cloud engineer and mechanical engineer.
 
